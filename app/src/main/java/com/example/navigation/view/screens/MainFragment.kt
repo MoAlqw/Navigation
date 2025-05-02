@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.navigation.ui.NavigationUI
 import com.example.navigation.R
 import com.example.navigation.databinding.FragmentMainBinding
 
@@ -26,12 +28,13 @@ class MainFragment: Fragment(R.layout.fragment_main) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.tvToken.text = getString(R.string.text_view_token, args.token)
+        val bottomNavigation = binding.bottomNavigation
+        val navController = childFragmentManager.findFragmentById(binding.containerMainFragments.id)!!.findNavController()
+        NavigationUI.setupWithNavController(bottomNavigation, navController)
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
 }
