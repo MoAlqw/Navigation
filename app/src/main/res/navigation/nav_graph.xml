@@ -18,7 +18,12 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.navigation.view.screens.MainFragment"
-        android:label="MainFragment" />
+        android:label="MainFragment" >
+        <argument
+            android:name="token"
+            app:argType="integer"
+            app:nullable="false"/>
+    </fragment>
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.navigation.view.screens.LoginFragment"
