@@ -1,19 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/main_nav_graph"
-    app:startDestination="@id/searchFragment">
+    android:id="@+id/nav_graph_main"
+    app:startDestination="@id/navigationSearch">
 
-    <fragment
-        android:id="@+id/searchFragment"
-        android:name="com.example.navigation.view.screens.main.SearchFragment"
-        android:label="SearchFragment" />
-    <fragment
-        android:id="@+id/cartFragment"
-        android:name="com.example.navigation.view.screens.main.CartFragment"
-        android:label="CartFragment" />
-    <fragment
-        android:id="@+id/profileFragment"
-        android:name="com.example.navigation.view.screens.main.ProfileFragment"
-        android:label="ProfileFragment" />
+    <navigation
+        android:id="@+id/navigationProfile"
+        app:startDestination="@id/profileFragment">
+        <fragment
+            android:id="@+id/profileFragment"
+            android:name="com.example.navigation.view.screens.main.ProfileFragment"
+            android:label="ProfileFragment">
+            <action
+                android:id="@+id/action_profileFragment_to_profileSettingsFragment"
+                app:destination="@id/profileSettingsFragment"
+                app:popUpToInclusive="false"
+                app:popUpToSaveState="true"
+                app:restoreState="true"/>
+        </fragment>
+        <fragment
+            android:id="@+id/profileSettingsFragment"
+            android:name="com.example.navigation.view.screens.main.ProfileSettingsFragment"
+            android:label="ProfileSettingsFragment">
+            <argument
+                android:name="token"
+                app:argType="integer" />
+        </fragment>
+    </navigation>
+    <navigation
+        android:id="@+id/navigationCart"
+        app:startDestination="@id/cartFragment">
+        <fragment
+            android:id="@+id/cartFragment"
+            android:name="com.example.navigation.view.screens.main.CartFragment"
+            android:label="CartFragment" />
+    </navigation>
+    <navigation
+        android:id="@+id/navigationSearch"
+        app:startDestination="@id/searchFragment">
+        <fragment
+            android:id="@+id/searchFragment"
+            android:name="com.example.navigation.view.screens.main.SearchFragment"
+            android:label="SearchFragment" />
+    </navigation>
 </navigation>

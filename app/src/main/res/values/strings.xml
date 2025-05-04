@@ -8,4 +8,6 @@
     <string name="search">Search</string>
     <string name="cart">Cart</string>
     <string name="profile">Profile</string>
+    <string name="open_settings">Open settings</string>
+    <string name="profile_settings">Profile settings</string>
 </resources>
